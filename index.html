@@ -1,10 +1,795 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <title>Panthers DBL</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈佳瑜 — 个人简历</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #152340;
+    --navy-mid:   #1e3360;
+    --navy-light: #243d6e;
+    --gold:       #b8913a;
+    --gold-light: #d4ae6a;
+    --gold-pale:  #f5edd8;
+    --cream:      #faf8f4;
+    --parchment:  #f0ece3;
+    --text:       #222222;
+    --text-mid:   #444444;
+    --text-light: #666666;
+    --border:     #ddd8cc;
+    --rule:       #c9a84c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--parchment);
+    color: var(--text);
+    font-size: 13.5px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PAGE ── */
+  .page {
+    max-width: 920px;
+    margin: 40px auto 60px;
+    background: var(--cream);
+    box-shadow: 0 10px 70px rgba(21,35,64,0.20);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: -50px; right: 170px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(180,145,58,0.2);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; right: 200px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 1px solid rgba(180,145,58,0.12);
+    pointer-events: none;
+  }
+
+  .header-text {
+    padding: 50px 52px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .name-cn {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: 46px;
+    color: #fff;
+    letter-spacing: 0.18em;
+    line-height: 1;
+  }
+  .name-en {
+    font-size: 13px;
+    color: var(--gold-light);
+    letter-spacing: 0.22em;
+    margin-top: 8px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+  .tagline-cn {
+    margin-top: 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.14em;
+    line-height: 1.6;
+  }
+  .gold-line {
+    width: 52px;
+    height: 2px;
+    background: var(--gold);
+    margin-top: 18px;
+  }
+
+  /* photo column */
+  .header-photo {
+    background: var(--navy-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+    border-left: 1px solid rgba(180,145,58,0.2);
+  }
+  .photo-frame {
+    width: 118px;
+    height: 148px;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+    border-radius: 2px;
+    background: var(--navy-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .photo-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    line-height: 1.8;
+    padding: 8px;
+  }
+
+  /* contact bar */
+  .contact-bar {
+    background: var(--navy-mid);
+    padding: 12px 52px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    border-top: 1px solid rgba(180,145,58,0.25);
+    flex-wrap: wrap;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.70);
+  }
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    fill: var(--gold);
+    flex-shrink: 0;
+  }
+  .contact-item a { color: var(--gold-light); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+
+  /* ── BODY GRID ── */
+  .body {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--navy-mid);
+    padding: 40px 26px;
+  }
+
+  .sb-section { margin-bottom: 32px; }
+  .sb-section:last-child { margin-bottom: 0; }
+
+  .sb-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-bottom: 9px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(180,145,58,0.3);
+    line-height: 1;
+  }
+
+  /* seeking */
+  .role-pill {
+    display: block;
+    background: rgba(180,145,58,0.12);
+    border: 1px solid rgba(180,145,58,0.32);
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-size: 12px;
+    color: var(--gold-light);
+    margin-bottom: 7px;
+    line-height: 1.5;
+    font-family: 'Noto Serif SC', serif;
+  }
+
+  /* edu */
+  .edu-item { margin-bottom: 16px; }
+  .edu-item .inst {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Noto Serif SC', serif;
+    line-height: 1.4;
+  }
+  .edu-item .degree {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.62);
+    margin-top: 3px;
+    line-height: 1.55;
+  }
+  .edu-item .year {
+    font-size: 10.5px;
+    color: var(--gold);
+    margin-top: 3px;
+  }
+
+  /* skills */
+  .skill-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
+  .skill-tag {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 2px;
+    padding: 4px 8px;
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.70);
+    line-height: 1.5;
+  }
+
+  /* refs */
+  .ref-item { margin-bottom: 14px; }
+  .ref-item .ref-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .ref-item .ref-role {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.55;
+    margin-top: 2px;
+  }
+  .ref-item .ref-email {
+    font-size: 10px;
+    color: var(--gold-light);
+    margin-top: 2px;
+    word-break: break-all;
+  }
+  .ref-item .ref-email a { color: var(--gold-light); text-decoration: none; }
+
+  /* ── MAIN ── */
+  .main { padding: 42px 46px; }
+
+  .section-heading {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .section-rule {
+    height: 1.5px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    border: none;
+    margin-bottom: 22px;
+  }
+
+  /* profile */
+  .profile-box {
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 18px;
+    margin-bottom: 32px;
+  }
+  .profile-box p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 2;
+  }
+
+  /* experience */
+  .exp-entry {
+    margin-bottom: 26px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-entry:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+  .exp-role {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: var(--navy);
+    line-height: 1.4;
+    flex: 1;
+  }
+  .exp-date {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(180,145,58,0.3);
+    padding: 2px 9px;
+    border-radius: 100px;
+  }
+  .exp-org {
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .exp-sub {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.55;
+    margin: 10px 0 6px;
+  }
+
+  ul.blist {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 6px;
+  }
+  ul.blist li {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.85;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 1px;
+  }
+  ul.blist li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .impact-box {
+    background: rgba(21,35,64,0.045);
+    border-left: 2.5px solid var(--gold);
+    padding: 9px 14px;
+    margin-top: 11px;
+    border-radius: 0 3px 3px 0;
+  }
+  .impact-box .exp-sub { margin-top: 0; color: var(--navy); opacity: 1; }
+  .impact-box ul.blist li { color: var(--navy); font-weight: 500; font-size: 12px; }
+  .impact-box ul.blist li::before { color: var(--navy); }
+
+  .early-box {
+    background: var(--parchment);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-top: 6px;
+  }
+  .early-box p {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 2.0;
+  }
+
+  /* ── FOOTER ── */
+  .cv-footer {
+    background: var(--navy);
+    padding: 16px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .cv-footer p { font-size: 10.5px; color: rgba(255,255,255,0.32); letter-spacing: 0.08em; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; max-width: 100%; }
+  }
+
+  @media (max-width: 700px) {
+    .header { grid-template-columns: 1fr; }
+    .header-photo { display: none; }
+    .body { grid-template-columns: 1fr; }
+    .sidebar { padding: 28px 22px; }
+    .header-text { padding: 36px 24px 28px; }
+    .contact-bar { padding: 12px 24px; gap: 16px; }
+    .main { padding: 28px 22px; }
+    .cv-footer { padding: 14px 22px; }
+    .name-cn { font-size: 36px; }
+  }
+</style>
 </head>
 <body>
-    <h1>Welcome to Panthers DBL</h1>
-    <!-- Your content here -->
+<div class="page">
+
+  <!-- ══════════════ HEADER ══════════════ -->
+  <header>
+    <div class="header">
+
+      <div class="header-text">
+        <div class="name-cn">陈佳瑜</div>
+        <div class="name-en">JIAYU CHEN &nbsp;(ALLEN CHEN)</div>
+        <div class="tagline-cn">
+          体育教师 &nbsp;·&nbsp; 体育总监 &nbsp;·&nbsp; 学生活动主任
+        </div>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="header-photo">
+        <div class="photo-frame">
+          <!-- 如需放照片，将下行取消注释并替换路径 -->
+          <!-- <img src="Allen - 证件照1.jpg" alt="陈佳瑜证件照"> -->
+          <div class="photo-placeholder">
+            <svg xmlns="Allen - 证件照1.jpg" width="40" height="40" viewBox="0 0 24 24" fill="rgba(180,145,58,0.5)" style="display:block;margin:0 auto 6px;"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            证件照<br>（此处替换）
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CONTACT BAR -->
+    <div class="contact-bar">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+        北京市朝阳区顺白路16号
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        (+86) 158-1137-6447
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:allenchen_ac@qq.com">allenchen_ac@qq.com</a>
+      </div>
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+        普通话（母语）&nbsp;|&nbsp; 英语（专业水平）
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <!-- ══════════════ SIDEBAR ══════════════ -->
+    <aside class="sidebar">
+
+      <!-- 求职方向 -->
+      <div class="sb-section">
+        <div class="sb-title">求职方向</div>
+        <span class="role-pill">体育教师</span>
+        <span class="role-pill">体育总监 / 副总监</span>
+        <span class="role-pill">学生活动总监 / 副总监</span>
+        <span class="role-pill">学生活动协调员</span>
+        <span class="role-pill">体验式教育协调员</span>
+      </div>
+
+      <!-- 教育背景 -->
+      <div class="sb-section">
+        <div class="sb-title">教育背景</div>
+        <div class="edu-item">
+          <div class="inst">中央民族大学</div>
+          <div class="degree">应用物理学学士</div>
+          <div class="year">2009 · 北京</div>
+        </div>
+      </div>
+
+      <!-- 资格证书 -->
+      <div class="sb-section">
+        <div class="sb-title">资格证书</div>
+        <div class="edu-item">
+          <div class="inst">IB MYP 体育与健康教育</div>
+          <div class="degree">CAT.1培训认证</div>
+          <div class="year">2026年1月</div>
+        </div>
+        <div class="edu-item">
+          <div class="inst">中国教师资格证</div>
+          <div class="degree">小学体育</div>
+          <div class="year">2022年</div>
+        </div>
+        <div class="edu-item">
+          <div class="inst">中国篮球协会（CBA）</div>
+          <div class="degree">中级教练员证书</div>
+          <div class="year">2016年</div>
+        </div>
+        <div class="edu-item">
+          <div class="inst">安博教育教师培训证书</div>
+          <div class="year">2009年</div>
+        </div>
+        <div class="edu-item">
+          <div class="inst">中英双语商务翻译证书</div>
+          <div class="degree">中英互译</div>
+          <div class="year">2008年</div>
+        </div>
+      </div>
+
+      <!-- 核心能力 -->
+      <div class="sb-section">
+        <div class="sb-title">核心能力</div>
+        <div class="skill-wrap">
+          <span class="skill-tag">IB MYP 课程与评估</span>
+          <span class="skill-tag">K-12 体育部门管理</span>
+          <span class="skill-tag">课外活动体系运营</span>
+          <span class="skill-tag">供应商招募与管理</span>
+          <span class="skill-tag">学生领导力培养</span>
+          <span class="skill-tag">赛事与活动统筹</span>
+          <span class="skill-tag">营地与体验式教育</span>
+          <span class="skill-tag">风险管理与家校沟通</span>
+          <span class="skill-tag">青少年篮球培训</span>
+          <span class="skill-tag">跨学段课程衔接</span>
+          <span class="skill-tag">摄影摄像内容制作</span>
+          <span class="skill-tag">Apple / Microsoft 办公软件</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ══════════════ MAIN ══════════════ -->
+    <main class="main">
+
+      <!-- 职业简介 -->
+      <h2 class="section-heading">职业简介</h2>
+      <hr class="section-rule">
+      <div class="profile-box">
+        <p>
+          富有活力的国际学校教育工作者，拥有逾10年工作经验，专长于IB MYP体育与健康教育教学、K-12体育部门综合管理以及大规模学生活动体系统筹。曾在北京多所顶级国际学校担任体育教师、体育总监及学生活动负责人，在构建全校体育项目、优化课外活动生态体系以及依托全人教育框架培养学生领导力方面成绩卓著，兼具课堂教学、行政管理与专业体育教练三重专业能力。
+        </p>
+      </div>
+
+      <!-- 工作经历 -->
+      <h2 class="section-heading">工作经历</h2>
+      <hr class="section-rule">
+
+      <!-- 启明星 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">MYP 体育与健康教育教师</div>
+          <div class="exp-date">2025年8月 — 至今</div>
+        </div>
+        <div class="exp-org">北京朝阳区启明星双语学校（Daystar Academy）</div>
+        <div class="exp-sub">课程教学</div>
+        <ul class="blist">
+          <li>讲授符合IB MYP标准的体育与健康教育课程，聚焦体育素养、个人健康与社会情感发展</li>
+          <li>设计基于探究式学习的教学单元，融合技能进阶、反思与学生目标设定</li>
+          <li>针对不同能力水平的混合班级实施差异化教学策略</li>
+          <li>依据MYP评估标准与IB学习者培养目标开展教学评估工作</li>
+          <li>构建具有包容性、高参与度的体育学习环境</li>
+          <li>积极参与并贡献于全校中学部体育文化建设</li>
+        </ul>
+        <div class="impact-box">
+          <div class="exp-sub">主要成果</div>
+          <ul class="blist">
+            <li>强化了初中与高中体育发展路径的纵向衔接，完善学段过渡机制</li>
+            <li>提升了学生在技能发展过程中的自我反思能力与主人翁意识</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 凯文 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">素质拓展中心主管 · 体育总监 · 体育教师</div>
+          <div class="exp-date">2024年2月 — 2025年7月</div>
+        </div>
+        <div class="exp-org">北京海淀凯文学校（Haidian Kaiwen Academy）</div>
+        <p style="font-size:12.5px;color:var(--text-light);margin-bottom:10px;font-style:italic;">
+          在承担全校K-12体育总监与课外活动统筹职责的同时，兼任初高中体育教学——三职合一充分体现了出色的综合管理与跨职能执行能力。
+        </p>
+
+        <div class="exp-sub">体育管理职责</div>
+        <ul class="blist">
+          <li>统筹管理全校小学、初中及高中各运动队，覆盖K-12全学段</li>
+          <li>建立校际竞赛晋级体系，组织参与国际学校联盟ISAC等多项联赛</li>
+          <li>督导教练团队工作，确保学生安全保障规范的严格落实</li>
+          <li>制定赛季规划制度与球队综合评估框架</li>
+        </ul>
+
+        <div class="exp-sub">课外活动管理职责</div>
+        <ul class="blist">
+          <li>管理全校K-12课外活动体系，涵盖外部供应商、校内教师及学生自主社团</li>
+          <li>搭建学生选课报名系统、家长沟通渠道及活动质量评估机制</li>
+          <li>负责课外活动供应商的合同谈判与合作关系全周期管理</li>
+          <li>统筹安排全校参观研学与体验式学习项目的规划与执行</li>
+        </ul>
+
+        <div class="exp-sub">课堂教学职责</div>
+        <ul class="blist">
+          <li>在承担全职体育总监职责的同时，兼任初中及高中三个班级的体育课教学</li>
+          <li>将竞技体育项目与课程学习目标有机整合，实现以赛促学</li>
+        </ul>
+
+        <div class="impact-box">
+          <div class="exp-sub">主要成果</div>
+          <ul class="blist">
+            <li>优化并规范化全校各学段课外活动的运营管理流程</li>
+            <li>加强了学校学术日历与体育活动安排之间的协调配合</li>
+            <li>显著提升学生参与度，使活动架构更加清晰规范</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 海嘉 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">学生活动部副主任</div>
+          <div class="exp-date">2023年2月 — 2024年2月</div>
+        </div>
+        <div class="exp-org">北京市海嘉学校（BIBA）</div>
+        <ul class="blist">
+          <li>统筹学生活动部对供应商课程（幼儿园至K-12）的招募、面谈、筛选及合同管理</li>
+          <li>统筹学生活动部与各学部的沟通，建立校内教师开设课外课的机制与招募流程</li>
+          <li>统筹课外课的日历安排、学生选课报名、课程观课评估及家校沟通渠道</li>
+          <li>为寒暑假策划校内学术营地、校外游学研学营以及海外微游学与夏校项目</li>
+          <li>统筹校内学术营地的教师招募、课程设计与实施监督工作</li>
+          <li>调研、洽谈及决策校外及海外游学/夏校项目供应商的遴选</li>
+          <li>开发青少年篮球项目，担任小学及中学男子篮球队主教练</li>
+        </ul>
+        <div class="impact-box">
+          <div class="exp-sub">主要成果</div>
+          <ul class="blist">
+            <li>将全校供应商管理体系专业化、规范化，提升合作质量与效率</li>
+            <li>建立透明高效的家长沟通渠道，有效提升家校互信</li>
+            <li>拓展了从小学到初中贯通的篮球发展培养路径</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 鼎石 —— 活动协调 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">学生活动部体育项目协调员</div>
+          <div class="exp-date">2019年 — 2022年10月</div>
+        </div>
+        <div class="exp-org">北京市鼎石学校（Keystone Academy）</div>
+        <ul class="blist">
+          <li>规划、协调和组织中学部各运动队的训练计划与赛季管理</li>
+          <li>规划并执行所有体育校队的赛事安排（ISAC / ACAMIS 等联赛）</li>
+          <li>开发、协调并执行新的周末学生体育活动项目，拓展运动参与渠道</li>
+          <li>监管周中及周末体育活动与赛事的顺利执行</li>
+          <li>协同统筹学生活动部课外课的供应商管理、校内教师开课管理及学生自主社团管理</li>
+          <li>协同安排课外课全年日历、学生报名流程、课程评估及家长沟通</li>
+        </ul>
+      </div>
+
+      <!-- 鼎石 —— 行政助理 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">教务长兼副校长行政助理 · 课程主任行政助理</div>
+          <div class="exp-date">2014年6月 — 2019年</div>
+        </div>
+        <div class="exp-org">北京市鼎石学校（Keystone Academy）</div>
+        <ul class="blist">
+          <li>管理教务长办公室及课程主任办公室的全部行政事务</li>
+          <li>管理和规划教务长办公室教师职业发展相关行政工作</li>
+          <li>安排和协调全校教师招聘事务，包括参加海内外招聘博览会</li>
+          <li>协助课程主任推进小学至中学阶段的课程衔接与过渡工作</li>
+          <li>规划并协助执行每年新老师入职培训周的全程组织工作</li>
+        </ul>
+      </div>
+
+      <!-- 鼎石 —— 篮球主教练 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role">篮球主教练（小学 · 初中 · 高中）</div>
+          <div class="exp-date">2014年 — 2022年</div>
+        </div>
+        <div class="exp-org">北京市鼎石学校 &nbsp;<span style="font-style:normal;font-size:11.5px;color:var(--text-light);">（与上述职位同期担任）</span></div>
+        <ul class="blist">
+          <li>创立并发展全校一体化、纵向贯通的篮球项目体系，从零搭建历时8年</li>
+          <li>担任初高中男子篮球校队主教练，并负责小学阶段男女混合启蒙训练</li>
+          <li>创立"学生教练员"领导力培养模式，赋能高年级学生担任同伴小教练</li>
+          <li>策划实施全校体育文化建设系列活动：毕业生赛事、院社杯、学生媒体服务等</li>
+        </ul>
+        <div class="impact-box">
+          <div class="exp-sub">主要成果</div>
+          <ul class="blist">
+            <li>历时8年从零构建了覆盖全学段的纵向贯通篮球培训体系</li>
+            <li>通过"学生教练员"模式培养了大批学生领导者，该模式至今仍被参考沿用</li>
+            <li>将校园篮球文化推广成为全校学生广泛参与的标志性体育文化品牌</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 早期职业 -->
+      <div class="exp-entry">
+        <div class="exp-top">
+          <div class="exp-role" style="font-size:13px;">早期职业经历</div>
+        </div>
+        <div class="early-box">
+          <p>
+            篮球项目经理 — Sports Beijing 体育俱乐部，北京 &nbsp;（2010年 — 2017年）<br>
+            中文秘书 — 斯洛文尼亚共和国驻华大使馆，北京 &nbsp;（2012年3月 — 2014年5月）<br>
+            项目助理 — 中德企业社会责任项目，德国国际合作机构（GIZ），北京 &nbsp;（2010年1月 — 2012年3月）<br>
+            行政助理 — 安博教育集团，北京 &nbsp;（2009年7月 — 2010年1月）
+          </p>
+        </div>
+      </div>
+
+      <!-- 推荐人 -->
+      <h2 class="section-heading" style="margin-top:8px;">推荐人</h2>
+      <hr class="section-rule">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;">
+
+        <div class="ref-item">
+          <div class="ref-name">程松 (Cory Cheng)</div>
+          <div class="ref-role">体育总监，北京市鼎石学校</div>
+          <div class="ref-email"><a href="mailto:cory.cheng@keystoneacademy.cn">cory.cheng@keystoneacademy.cn</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">贾莉莉 (Lili Jia)</div>
+          <div class="ref-role">前课程主任兼副校长，北京市鼎石学校</div>
+          <div class="ref-email"><a href="mailto:lili.jia@keystoneacademy.cn">lili.jia@keystoneacademy.cn</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Malcolm McKenzie</div>
+          <div class="ref-role">荣誉理事及前校长，北京市鼎石学校</div>
+          <div class="ref-email"><a href="mailto:Malcolm.mckenzie@keystoneacademy.cn">Malcolm.mckenzie@keystoneacademy.cn</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Dr K C Pang</div>
+          <div class="ref-role">校长，北京市海嘉学校</div>
+          <div class="ref-email"><a href="mailto:drkcpang@bibachina.org">drkcpang@bibachina.org</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Thomas Givens</div>
+          <div class="ref-role">前体育总监，北京市海嘉学校</div>
+          <div class="ref-email"><a href="mailto:tgivens@bibachina.org">tgivens@bibachina.org</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Scott Reid</div>
+          <div class="ref-role">副校长兼中学部校长，北京海淀凯文学校</div>
+          <div class="ref-email"><a href="mailto:Scott.Reid@hd.kaiwenacademy.cn">Scott.Reid@hd.kaiwenacademy.cn</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Ryan Sweet</div>
+          <div class="ref-role">中学体育组组长，北京启明星双语学校</div>
+          <div class="ref-email"><a href="mailto:Ryan.sweet@daystaracademy.cn">Ryan.sweet@daystaracademy.cn</a></div>
+        </div>
+
+        <div class="ref-item">
+          <div class="ref-name">Jonah Olken Dann</div>
+          <div class="ref-role">中学执行校长，北京启明星双语学校</div>
+          <div class="ref-email"><a href="mailto:Jonah.olken-dann@daystaracademy.cn">Jonah.olken-dann@daystaracademy.cn</a></div>
+        </div>
+
+      </div>
+
+    </main>
+  </div><!-- end .body -->
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="cv-footer">
+    <p>陈佳瑜（Allen Chen）&nbsp;·&nbsp; allenchen_ac@qq.com &nbsp;·&nbsp; (+86) 158-1137-6447</p>
+    <p>北京市朝阳区顺白路16号</p>
+  </footer>
+
+</div><!-- end .page -->
 </body>
 </html>
